@@ -1,199 +1,329 @@
-/* General Styling */
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8dcdc;
-  color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fddedf;
+    color: #333;
 }
 
-
-
-.menu-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+h1, h2 {
+    color: #f75990;
 }
 
-.menu-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: black;
+header{
+    position: relative;
+    background: url(../image/tray_with_delicious_sushi_rolls_wooden_table_top_view_japanese_food.jpg);
+    background-position: center;
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+header::before{
+    content: ' ';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #000;
+    opacity: .5;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+header .container{
+    position: relative;
+    z-index: 10;
+}
+header .topmenu{
+    display: flex;
+    justify-content: end;
+    position: relative;
+    padding: 15px 0px;
+}
+header .topmenu span{
+    position: absolute;
+    color: #fff;
+    background: #f75990;
+    font-size: 16px;
+    padding: 2px 6px 0px 6px;
+    border-radius: 50px;
+    top: 10px;
+    right: 1px;
+}
+header .header_content{
+    padding: 150px 0px 40px 0px;
+}
+header .header_content h1{
+    font-size: 80px;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    text-shadow: #fff;
+    -webkit-text-stroke: 1px #fff;
+}
+header .header_content span{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
 }
 
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
+/* menu section style starts */
+#menu{
+    padding: 100px 0px;
 }
+#menu .page_title span{
+    text-shadow: 3px 2px 11px rgba(0, 0, 0, 0.34);
+    color: #000;
+    font-size: 40px;
+    font-weight: 600;
+    
+}
+#menu .menu_product{
+    padding: 50px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+#menu .menu_product .menu_box{
+    width: 23%;
+}
+#menu .menu_product .menu_box .menu_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: -3px 9px 18px 2px #00000040;
+    cursor: pointer;
+}
+#menu .menu_product .menu_box .menu_item img{
+    width: 80%;
+    margin: 0px auto;
+}
+#menu .menu_product .menu_box .menu_item span{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+#menu .menu_product .menu_box .menu_price{
+    padding: 30px 0px;
+    text-align: center;
+}
+#menu .menu_product .menu_box .menu_price span{
+    font-size: 20px;
+    color: #000;
+    font-weight: 800;
+}
+#menu .menu_product .menu_box .menu_price .counter-container{
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.counter-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 
-.menu-item {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  text-align: center;
-}
+  button {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
 
-.menu-item img {
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
+  button:hover {
+    transform: scale(1.1);
+  }
 
-.menu-item h3 {
-  font-size: 1.2rem;
-  margin: 10px 0;
-  color: black;
-}
+  button:active {
+    transform: scale(0.9);
+  }
 
-.menu-item p {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 10px;
-}
+  .number-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+  }
 
-.menu-item .price {
-  font-weight: bold;
-  color: black;
-  margin-bottom: 10px;
-}
+ #order_input{
+    padding: 0px 0px 60px 0px;
+ }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  label {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  select, input[type="date"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid rgb(49, 49, 49);
+    border-radius: 8px;
+  }
+  
+  #order_input button {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 60px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0px auto;
+    border: 2px solid #fff;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
 
-.menu-item .quantity {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
+  /* footer section starts */
 
-.menu-item .quantity button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: black;
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
+  footer{
+    padding: 30px 0px 40px 0px;
+    background: #000;
+  }
+  footer .footer_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  footer .footer_box .footer-adres{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  footer .footer_box .footer-adres .number{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  footer .footer_box .footer-adres a{
+    font-size: 15px;
+    color: #fff;
+  }
+  footer .footer_box .footer-adres .number .icons{
+    width: 10%;
+  }
+  footer .logo_footer img{
+    width: 160%;
+  }
+  #order_info{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+  #order_info .order_box{
+    position: fixed;
+    top: 30%;
+    right: 35%;
+    width: 30%;
+    background: #fff;
+    padding: 80px 30px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 10px;
+  }
+  #order_info .order_box .total_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #order_info .order_box .total_box span{
+    font-size: 35px;
+    padding: 10px 0px;
+    text-shadow: 3px 2px 11px rgba(0, 0, 0, 0.34);
+    font-weight: 600;
+  }
+  #order_info button{
+    background-color: #000;
+    color: #fff;
+    padding: 20px 60px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0px auto;
+    border: 2px solid #fff;
+    margin: 60px auto 0px auto;
+  }
 
-.menu-item .quantity span {
-  font-size: 1rem;
-  color: black;
-  width: 20px;
-  text-align: center;
+
+  /* history page css */
+
+#history{
+    position: relative;
+    padding: 40px 0px;
 }
-header {
-  background-image: url(/main/assets/images/header.jpg);
-  background: no-repeat center;
-  background-size: cover;
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 100%;
-  height: 250px; 
-  background-size: cover;
-  background-position: center;
-  position: relative;
+#history .navs{
+    text-align: center;
+}
+#history .navs span{
+    font-size: 40px;
+    font-family: "Kaushan Script", cursive;
+}
+#history .icon_box{
+    position: absolute;
+    top: 42%;
+    left: 10%;
 }
   
-header h1 {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-header p {
-  font-size: 1.2rem;
-}
-
-
-div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-div > div {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  text-align: center;
-  width: 150px;
-  height: auto;
-}
-
-div > div img {
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-div > div p {
-  margin: 5px 0;
-  font-size: 0.9rem;
-}
-
-/* Order Section */
-form {
-  border-radius: 8px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 400px;
-  margin: 20px auto;
-}
-
-form div {
-  margin-bottom: 15px;
-}
-
-form label {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 5px;
-}
-
-form select,
-form input[type="date"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #444;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  body {
-      font-size: 14px;
+  table {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 40px 0px 60px 0px;
   }
 
-  div > div {
-      width: 120px;
+  table th,
+  table td {
+    padding: 40px;
+    border: 1px solid #444;
+    text-align: center;
   }
 
-  header h1 {
-      font-size: 2rem;
+  table th {
+    background-color: #444;
   }
-}
+
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+  }
+
+  .back-button:hover {
+    text-decoration: underline;
+  }

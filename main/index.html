@@ -4,141 +4,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sakura Bar Sushi</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- bootstrap link -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <h1>Sakura Bar Sushi</h1>
-        <p>Welcome to the finest sushi experience!</p>
-        
+        <div class="container">
+            <div class="topmenu">
+                <img src="./image/IMG_3490 1.png" alt="">
+                <span>0</span>
+            </div>
+            <div class="header_content">
+                <h1>Sakura Bar Sushi</h1>
+                <span>Welcome to Sakura Sushi, your go-to destination for authentic <br> Japanese cuisine!</span>
+            </div>
+        </div>
     </header>
-    <!-- Menu Section -->
-    <section>
-        <body>
-            <section class="section1">
-            <div class="menu-container">
-                <h1 class="menu-title">Menu:</h1>
-                <div class="menu-grid">
-                    <!-- Menu Item 1 -->
-                    <div class="menu-item">
-                        <img src="/main/assets/images/hosomaki.PNG" alt="Hosomaki">
-                        <h3>Hosomaki</h3>
-                        <p class="price">45,000 UZS</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span>0</span>
-                            <button>+</button>
+    
+
+    <!-- menu section strats -->
+
+    <section id="menu">
+        <div class="container">
+            <div class="page_title">
+                <span>MENU</span>
+            </div>
+            <div class="menu_product">
+                <div class="menu_box">
+                    <div class="menu_item">
+                        <img src="./image/IMG_3454 1.png" alt="">
+                        <span>Hosomaki</span>
+                    </div>
+                    <div class="menu_price">
+                        <span>45.000 UZS</span>
+                        <div class="counter-container">
+                            <button id="decrement">-</button>
+                            <span class="number-display" id="number">0</span>
+                            <button id="increment">+</button>
                         </div>
                     </div>
-        
-                    <!-- Menu Item 2 -->
-                    <div class="menu-item">
-                        <img src="/main/assets/images/unagirolls.jpg" alt="Unagi Rolls">
-                        <h3>Unagi Rolls</h3>
-                        <p class="price">85,000 UZS</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
+                </div>
+
+                <div class="menu_box">
+                    <div class="menu_item">
+                        <img src="./image/IMG_3454 1.png" alt="">
+                        <span>Hosomaki</span>
+                    </div>
+                    <div class="menu_price">
+                        <span>45.000 UZS</span>
+                        <div class="counter-container">
+                            <button id="decrement">-</button>
+                            <span class="number-display" id="number">0</span>
+                            <button id="increment">+</button>
                         </div>
                     </div>
-        
-                    <!-- Menu Item 3 -->
-                    <div class="menu-item">
-                        <img src="/main/assets/images/salmonrollset.PNG" alt="Salmon Roll Set">
-                        <h3>Salmon Roll Set</h3>
-                        <p class="price">120,000 UZS</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
+                </div>
+
+                <div class="menu_box">
+                    <div class="menu_item">
+                        <img src="./image/IMG_3454 1.png" alt="">
+                        <span>Hosomaki</span>
+                    </div>
+                    <div class="menu_price">
+                        <span>45.000 UZS</span>
+                        <div class="counter-container">
+                            <button id="decrement">-</button>
+                            <span class="number-display" id="number">0</span>
+                            <button id="increment">+</button>
                         </div>
                     </div>
-        
-                    <!-- Menu Item 4 -->
-                    <div class="menu-item">
-                        <img src="/main/assets/images/philadelphiasalmon.PNG" alt="Philadelphia with Salmon Roe">
-                        <h3>Philadelphia with Salmon Roe</h3>
-                        <p class="price">75,000 UZS</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span>0</span>
-                            <button>+</button>
+                </div>
+
+                <div class="menu_box">
+                    <div class="menu_item">
+                        <img src="./image/IMG_3454 1.png" alt="">
+                        <span>Hosomaki</span>
+                    </div>
+                    <div class="menu_price">
+                        <span>45.000 UZS</span>
+                        <div class="counter-container">
+                            <button id="decrement">-</button>
+                            <span class="number-display" id="number">0</span>
+                            <button id="increment">+</button>
                         </div>
                     </div>
-                </section>
-                <section class="section2">
-                    <!-- Menu Item 5 -->
-                    <div class="menu-item">
-                        <img src="/main/assets/images/mixset.png" alt="Mix Set">
-                        <h3>Mix Set</h3>
-                        <p class="price">150,000 UZS</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span>1</span>
-                            <button>+</button>
+                </div>
+
+                <div class="menu_box">
+                    <div class="menu_item">
+                        <img src="./image/IMG_3454 1.png" alt="">
+                        <span>Hosomaki</span>
+                    </div>
+                    <div class="menu_price">
+                        <span>45.000 UZS</span>
+                        <div class="counter-container">
+                            <button id="decrement">-</button>
+                            <span class="number-display" id="number">0</span>
+                            <button id="increment">+</button>
                         </div>
                     </div>
-        
-                    <!-- Menu Item 6 -->
-                    <div class="menu-item">
-                        <img src="/main/assets/images/nigiriunagi.PNG" alt="Nigiri Unagi">
-                        <h3>Nigiri Unagi</h3>
-                        <p class="price">95,000 UZS</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span>0</span>
-                            <button>+</button>
+                </div>
+
+                <div class="menu_box">
+                    <div class="menu_item">
+                        <img src="./image/IMG_3454 1.png" alt="">
+                        <span>Hosomaki</span>
+                    </div>
+                    <div class="menu_price">
+                        <span>45.000 UZS</span>
+                        <div class="counter-container">
+                            <button id="decrement">-</button>
+                            <span class="number-display" id="number">0</span>
+                            <button id="increment">+</button>
                         </div>
                     </div>
-        
-                    <!-- Menu Item 7 -->
-                    <div class="menu-item">
-                        <img src="/main/assets/images/sakenigiri.jpg" alt="Sake Nigiri">
-                        <h3>Sake Nigiri</h3>
-                        <p class="price">70,000 UZS</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span>0</span>
-                            <button>+</button>
+                </div>
+
+                <div class="menu_box">
+                    <div class="menu_item">
+                        <img src="./image/IMG_3454 1.png" alt="">
+                        <span>Hosomaki</span>
+                    </div>
+                    <div class="menu_price">
+                        <span>45.000 UZS</span>
+                        <div class="counter-container">
+                            <button id="decrement">-</button>
+                            <span class="number-display" id="number">0</span>
+                            <button id="increment">+</button>
                         </div>
                     </div>
-        
-                    <!-- Menu Item 8 -->
-                    <div class="menu-item">
-                        <img src="/main/assets/images/teriyakisushi.jpg" alt="Teriyaki Sushi">
-                        <h3>Temaki Sushi</h3>
-                        <p class="price">95,000 UZS</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span>0</span>
-                            <button>+</button>
+                </div>
+
+                <div class="menu_box">
+                    <div class="menu_item">
+                        <img src="./image/IMG_3454 1.png" alt="">
+                        <span>Hosomaki</span>
+                    </div>
+                    <div class="menu_price">
+                        <span>45.000 UZS</span>
+                        <div class="counter-container">
+                            <button id="decrement">-</button>
+                            <span class="number-display" id="number">0</span>
+                            <button id="increment">+</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        </body>
+
+        </div>
     </section>
 
+    <!-- menu section ends -->
 
-    
-    <section >
-        <form>
-            <div>
-                <label for="region">Region:</label>
-                <select id="region">
-                    <option value="uzb">Uzbekistan</option>
-                    <option value="usa">United States</option>
-                    <option value="jpn">Japan</option>
-                </select>
-            </div>
-            <div >
-                <label for="date">Date:</label>
-                <input type="date" id="date" style="width: 100%; padding: 10px; border-radius: 5px;">
-            </div>
-            <button type="submit">Order</button>
-        </form>
+    <!-- order section starts -->
+
+    <section id="order_input">
+        <div class="container">
+            <div class="form-container">
+                <form>
+                  <label for="region">Region:</label>
+                  <select id="region" name="region">
+                    <option value="uzb">Uzb</option>
+                    <option value="usa">USA</option>
+                    <option value="uk">UK</option>
+                    <!-- Add more options as needed -->
+                  </select>
+            
+                  <label for="date">Date:</label>
+                  <input type="date" id="date" name="date">
+                  
+                  <a href="./order.html">
+                    <button type="">Order</button>
+                  </a>
+                  
+                </form>
+              </div>
+        </div>
     </section>
-    <script src="app.js"></script>
+
+    <!-- order section ends -->
+
+
+    <!-- footer section strats -->
+
+    <footer>
+        <div class="container">
+            <div class="footer_box">
+                <div class="footer-adres">
+                    <div class="number">
+                        <img class="icons" src="./image/흰 전화 아이콘 Png, 전화, 상, 통화 디자인 요소 PNG, 일러스트 및 벡터 에 대한 무료 다운로드 - Pngtree 3.png" alt="">
+                        <a href="tel: +997684209">+997684209</a>
+                    </div>
+                    <div class="number">
+                        <img src="./image/Black Icon- Mail 2.png" alt="">
+                        <a href="malito: sakura_sushi@gmail.com ">sakura_sushi@gmail.com</a>
+                    </div>
+                </div>
+                <div class="logo_footer">
+                    <img src="./image/Sakura Bar Sushi.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- footer section ends -->
+
+
+
+    <!-- bootstrap scripts -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
