@@ -1,0 +1,30 @@
+@media only screen and (max-width: 700px) {
+    
+    #menu .menu_product .menu_box{
+        width: 45%;
+    }
+    footer .logo_footer img{
+        width: 100%;
+    }
+    header .header_content{
+        padding: 100px 0px 40px 0px;
+    }
+    #menu{
+        padding: 30px 0px;
+    }
+    #menu .menu_product{
+        padding: 30px 0px;
+    }
+    #order_info .order_box{
+        top: 30%;
+        width: 70%;
+        left: 15%;
+        right: 15%;
+        padding: 20px;
+    }
+
+    #order_info .order_box .total_box span{
+        font-size: 25px;
+    }
+
+}
