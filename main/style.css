@@ -468,4 +468,18 @@ header .topmenu span {
   .back-button:hover {
     text-decoration: underline;
   }
- 
+  .success-message {
+    position: fixed; /* Fix the position so it stays in the top-left corner */
+    top: 10px; /* Distance from the top */
+    left: 10px; /* Distance from the left */
+    background-color: #d4edda; /* Light green background for success */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb; /* Subtle border */
+    padding: 10px 15px; /* Padding for readability */
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 1000; /* Ensure it appears above other elements */
+    display: none; /* Initially hidden */
+}
