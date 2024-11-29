@@ -483,3 +483,24 @@ header .topmenu span {
     z-index: 1000; /* Ensure it appears above other elements */
     display: none; /* Initially hidden */
 }
+
+/*  Modal styles */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    transition: opacity 0.15s linear; /* Smooth transition */
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 1rem; /* Add space between buttons */
+    padding: 1rem; /* Adjust padding */
+}
+.modal-footer .btn {
+    padding: 0.75rem 1.5rem; /* Increase button size */
+    font-size: 1.2rem; /* Bigger text */
+    border-radius: 0.5rem; /* Slightly rounded corners */
+    text-transform: capitalize; /* Make text title-case */
+    width: 180px;
+    height:50px;
+}
