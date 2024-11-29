@@ -172,6 +172,18 @@
 
     <!-- menu section ends -->
 
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+        <div id="orderToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <!-- The message will be dynamically updated -->
+                    Order placed successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <!-- order section starts -->
 
     <section id="order_input">
@@ -180,12 +192,12 @@
                 <form>
                   <label for="region">Region:</label>
                   <select id="region" name="region">
-                    <option value="uzb">Uzbekistan</option>
-                    <option value="kaz">Kazakhstan</option>
-                    <option value="geo">Georgia</option>
-                    <option value="ukr">Ukraine</option>
-                    <option value="chn">China</option>
-                    <option value="ru">Russia</option>
+                    <option value="UZB">Uzbekistan</option>
+                    <option value="KAZ">Kazakhstan</option>
+                    <option value="GEO">Georgia</option>
+                    <option value="UKR">Ukraine</option>
+                    <option value="CHN">China</option>
+                    <option value="RU">Russia</option>
                     <!-- Add more options as needed -->
                   </select>
             
