@@ -1,0 +1,151 @@
+/* Default Global Styles (for Desktop First Approach) */
+body {
+  font-size: 16px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* General Styles */
+  body {
+      font-size: 14px;
+  }
+
+  header .header_content h1 {
+      font-size: 36px; /* Slightly reduced for better scaling */
+      text-align: center;
+  }
+
+  header .header_content span {
+      font-size: 12px;
+      text-align: center; /* Center-align for better mobile experience */
+  }
+
+  header .topmenu {
+      padding: 10px;
+      flex-direction: column; /* Stack items vertically for narrow screens */
+      gap: 10px;
+  }
+
+  header .topmenu span {
+      font-size: 12px;
+      top: 5px;
+      right: 5px;
+  }
+
+  /* Menu Section */
+  #menu .menu_product {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+
+  #menu .menu_product .menu_box {
+      width: 90%;
+      margin-bottom: 20px;
+  }
+
+  #menu .menu_product .menu_box .menu_item {
+      width: 100%;
+      height: auto;
+  }
+
+  #menu .menu_product .menu_box .menu_item img {
+      width: 60%;
+  }
+
+  #menu .menu_product .menu_box .menu_price {
+      padding: 20px 0;
+  }
+
+  /* Order Section */
+  #order_input form {
+      padding: 10px;
+  }
+
+  #order_info .order_box {
+      width: 90%;
+      top: 20%;
+      left: 5%;
+  }
+
+  /* Table Styles */
+  table {
+      width: 95%;
+      font-size: 12px;
+  }
+
+  table th,
+  table td {
+      padding: 10px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Header Content */
+  header .header_content h1 {
+      font-size: 50px; /* Adjust size for tablets */
+      text-align: center;
+  }
+
+  header .header_content span {
+      font-size: 14px;
+      text-align: center;
+  }
+
+  header .topmenu {
+      gap: 15px; /* Increase spacing */
+  }
+
+  /* Menu Section */
+  #menu .menu_product {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+  }
+
+  #menu .menu_product .menu_box {
+      width: 48%; /* Better spacing for grid layout */
+      margin-bottom: 20px;
+  }
+
+  #menu .menu_product .menu_box .menu_item img {
+      width: 70%;
+  }
+
+  /* Table Styles */
+  table {
+      width: 90%;
+      font-size: 14px;
+  }
+
+  table th,
+  table td {
+      padding: 20px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  /* Menu Section */
+  #menu .menu_product {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px; /* Consistent spacing */
+  }
+
+  #menu .menu_product .menu_box {
+      width: 23%;
+  }
+
+  /* Table Styles */
+  table {
+      font-size: 16px;
+      width: 80%;
+  }
+
+  table th,
+  table td {
+      padding: 30px;
+  }
+}

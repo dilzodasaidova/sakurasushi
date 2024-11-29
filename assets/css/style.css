@@ -70,7 +70,7 @@ header .header_content span{
 /* Topmenu with hourglass and cart */
 header{
   position: relative;
-  background: url(/main/assets/images/header.jpg);
+  background: url(/assets/images/header.jpg);
   background-position: center;
   background-size: cover;
   background-position: right;
