@@ -112,7 +112,7 @@ header .topmenu .hourglass {
 /* Cart icon styling */
 header .topmenu img {
   height: 35px; /* Adjust size of the cart image */
-  width: 35px;
+  width: 40px;
 }
 
 /* Styling for the hourglass link */
@@ -472,7 +472,3 @@ header .topmenu span {
     text-decoration: underline;
   }
  
-
-
-
-
