@@ -1,6 +1,9 @@
 /* --------------------------------- VARIABLES ------------------------------------------ */
 const incrementButtons = document.querySelectorAll(".increment");
 const decrementButtons = document.querySelectorAll(".decrement");
+const cart = document.querySelector(".cart-count");
+let cartCounter = 0;
+
 const regionSelect = document.getElementById("region");
 const dateChosen = document.getElementById("date");
 
@@ -33,6 +36,8 @@ incrementButtons.forEach(button => {
         const quantityDisplay = button.previousElementSibling;
         const currentValue = parseInt(quantityDisplay.textContent);
         quantityDisplay.textContent = currentValue + 1;
+        cartCounter++;
+        cart.textContent = cartCounter;
     });
 });
 
@@ -43,9 +48,12 @@ decrementButtons.forEach(button => {
         const currentValue = parseInt(quantityDisplay.textContent);
         if (currentValue > 0) {
             quantityDisplay.textContent = currentValue - 1;
+            cartCounter--;
+            cart.textContent = cartCounter;
         }
     });
 });
+
 
 /* ---------------------------------------CALCULATE BUTTON--------------------------------------- */
 // Event listener for the order button
@@ -262,6 +270,7 @@ function resetForm() {
     discountPercentage.textContent = "0";
     discountValue.textContent = "0";
     totalValue.textContent = "0";
+    cartCounter = 0;
 
     // Hide the modal (if it's still open)
     orderModal.hide();
