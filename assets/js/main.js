@@ -169,6 +169,7 @@ function validateInputs() {
             errors.push("The delivery date cannot be in the past.");
         }
 
+        const years = 50;
         const futureDate = currentDate.setFullYear(currentDate.getFullYear() + years);
         if (chosenDate > futureDate) {
             errors.push("The delivery date cannot be 50 years into future.");
