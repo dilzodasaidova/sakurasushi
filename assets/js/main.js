@@ -1,12 +1,17 @@
 const incrementButtons = document.querySelectorAll(".increment");
 const decrementButtons = document.querySelectorAll(".decrement");
+const regionSelect = document.getElementById("region"); // Region select dropdown
+
 const orderButton = document.querySelector(".order_button"); // Order button
 const orderInfo = document.getElementById("order_info"); // Order modal
 const closeOrder = document.getElementById("closeOrder"); // Close button
-const taxElement = document.getElementById("tax"); // Tax element
-const discountElement = document.getElementById("discount"); // Discount element
-const totalElement = document.getElementById("total"); // Total element
-const regionSelect = document.getElementById("region"); // Region select dropdown
+
+const taxAmount = document.getElementById("taxValue");
+const taxPercentage = document.getElementById("taxPercentage");
+const discountAmount = document.getElementById("discountValue");
+const discountPercentage = document.getElementById("discountPercentage");
+const totalElement = document.getElementById("totalValue");
+
 const BASE_CALCULATE_API_URL = "http://localhost:8080/api/order/calculate";
 
 // Add event listeners to increment buttons
@@ -41,12 +46,9 @@ closeOrder.addEventListener("click", () => {
     orderInfo.style.display = "none";
 });
 
-// // Hide the modal when clicked outside or after an action
-// orderInfo.addEventListener("click", (event) => {
-//     if (event.target === orderInfo) {
-//         orderInfo.style.display = "none";
-//     }
-// });
+
+
+
 
 // Function to collect data and send to API
 async function calculateOrder() {
@@ -88,18 +90,26 @@ async function calculateOrder() {
         if (!response.ok) throw new Error("Failed to calculate order");
 
         const data = await response.json();
+        console.log("Calculate response:", data);
 
         // Update modal with API response
-        taxElement.textContent = `Tax (${data.taxPercentage}%): ${data.taxAmount.toLocaleString()} UZS`;
-        discountElement.textContent = `Discount (${data.discountPercentage}%): ${data.discountAmount.toLocaleString()} UZS`;
-        totalElement.textContent = `Total: ${data.totalAmount.toLocaleString()} UZS`;
-
-        // Show the modal
-        orderInfo.style.display = "block";
+        showOrderModal(data);
     } catch (error) {
         console.error("Error:", error);
         alert("Failed to calculate order. Please try again.");
     }
+}
+
+
+// Show modal with calculated order
+function showOrderModal(data) {
+    taxPercentage.textContent = data.taxPercentage;
+    taxAmount.textContent = data.taxAmount.toLocaleString();
+    discountPercentage.textContent = data.discountPercentage;
+    discountAmount.textContent = data.discountAmount.toLocaleString();
+    totalElement.textContent = data.totalAmount.toLocaleString();
+
+    orderInfo.style.display = "block";
 }
 
 
