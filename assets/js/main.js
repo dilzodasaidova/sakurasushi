@@ -2,17 +2,24 @@ const incrementButtons = document.querySelectorAll(".increment");
 const decrementButtons = document.querySelectorAll(".decrement");
 const regionSelect = document.getElementById("region"); // Region select dropdown
 
-const orderButton = document.querySelector(".order_button"); // Order button
-const orderInfo = document.getElementById("order_info"); // Order modal
-const closeOrder = document.getElementById("closeOrder"); // Close button
 
-const taxAmount = document.getElementById("taxValue");
+const taxValue = document.getElementById("taxValue");
 const taxPercentage = document.getElementById("taxPercentage");
-const discountAmount = document.getElementById("discountValue");
+const discountValue = document.getElementById("discountValue");
 const discountPercentage = document.getElementById("discountPercentage");
-const totalElement = document.getElementById("totalValue");
+const totalValue = document.getElementById("totalValue");
 
 const BASE_CALCULATE_API_URL = "http://localhost:8080/api/order/calculate";
+
+
+// Ensure the modal element exists
+const orderModalElement = document.getElementById('orderModal');
+
+// Initialize the modal
+const orderModal = new bootstrap.Modal(orderModalElement, {
+    backdrop: 'static', // Prevent closing by clicking outside the modal
+    keyboard: false, // Disable closing with keyboard (Esc key)
+});
 
 // Add event listeners to increment buttons
 incrementButtons.forEach(button => {
@@ -40,13 +47,6 @@ orderButton.addEventListener("click", (event) => {
     event.preventDefault(); // Prevent form submission
     calculateOrder(); // Trigger order calculation
 });
-
-// Close the modal
-closeOrder.addEventListener("click", () => {
-    orderInfo.style.display = "none";
-});
-
-
 
 
 
@@ -101,15 +101,18 @@ async function calculateOrder() {
 }
 
 
-// Show modal with calculated order
+// Show the Bootstrap modal with the order summary
 function showOrderModal(data) {
-    taxPercentage.textContent = data.taxPercentage;
-    taxAmount.textContent = data.taxAmount.toLocaleString();
-    discountPercentage.textContent = data.discountPercentage;
-    discountAmount.textContent = data.discountAmount.toLocaleString();
-    totalElement.textContent = data.totalAmount.toLocaleString();
+    console.log("Modal Data:", data);
+    taxPercentage.textContent = data.taxPercentage || 0;
+    taxValue.textContent = data.taxAmount.toLocaleString() || 0;
+    discountPercentage.textContent = data.discountPercentage || 0;
+    discountValue.textContent = data.discountAmount.toLocaleString() || 0;
+    totalValue.textContent = data.totalAmount.toLocaleString() || 0;
 
-    orderInfo.style.display = "block";
+    // Show the modal
+    console.log("Showing modal...");
+    orderModal.show();
 }
 
 
