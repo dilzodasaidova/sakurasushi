@@ -24,9 +24,7 @@ const orderModal = new bootstrap.Modal(orderModalElement, {
     backdrop: 'static', // Prevent closing by clicking outside the modal
     keyboard: false, // Disable closing with keyboard (Esc key)
 });
-const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
-const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
+
 
 /* ---------------------------------------INCREMENT & DECREMENT BUTTONS--------------------------------------- */
 // Add event listeners to increment buttons
@@ -62,9 +60,8 @@ async function calculateOrder() {
     // Validate first
     const errors = validateInputs();
     if (errors.length > 0) {
-        // Show error toast with all validation messages
         showValidationErrors(errors);
-        return; // Stop further execution
+        return;
     }
 
     const selectedRegion = regionSelect.value;
@@ -137,7 +134,8 @@ async function placeOrder() {
         const data = await response.text();
         console.log("Place order response:", data);
         resetForm();
-        showSuccessPopup("Order placed successfully!", "success");
+        showSuccessPopup("Order placed successfully!");
+
     } catch (error) {
         console.error("Error:", error);
         // Show error toast
@@ -216,37 +214,32 @@ function showOrderModal(data) {
     orderModal.show();
 }
 
-/* ---------------------------------------SHOW POPUP HELPER --------------------------------------- */
-// Function to show the success modal
-function showSuccessPopup() {
-    successModal.show();
+/* ---------------------------------------SHOW TOAST HELPER --------------------------------------- */
+function showToast(message, type = "primary", timeout = 3000) {
+    // Get the toast element and message container
+    const toastElement = document.getElementById("customToast");
+    const toastMessage = document.getElementById("toastMessage");
+
+    // Update the message and type
+    toastMessage.textContent = message;
+    toastElement.className = `toast align-items-center text-white bg-${type} border-0`;
+
+    // Initialize and show the toast
+    const toast = new bootstrap.Toast(toastElement, { delay: timeout });
+    toast.show();
 }
 
-// Function to show the error modal with a custom message
+function showSuccessPopup(message) {
+    showToast(message || "Operation completed successfully!", "success");
+}
+
 function showErrorPopup(message) {
-    document.getElementById('errorMessage').textContent = message;
-    errorModal.show();
+    showToast(message || "An error occurred. Please try again.", "danger");
 }
 
-
-
-// Function to show validation errors in the modal
 function showValidationErrors(errors) {
-    const errorList = document.getElementById("validationErrorList");
-
-    // Clear existing errors
-    errorList.innerHTML = "";
-
-    // Populate errors
-    errors.forEach((error) => {
-        const errorItem = document.createElement("li");
-        errorItem.textContent = error;
-        errorItem.className = "list-group-item list-group-item-danger";
-        errorList.appendChild(errorItem);
-    });
-
-    // Show the modal
-    validationModal.show();
+    const errorMessage = errors.join("\n"); // Combine errors into a single string
+    showToast(errorMessage, "warning");
 }
 
 
