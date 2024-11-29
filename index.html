@@ -198,27 +198,33 @@
 
                     <button id="orderButton" class="order_button">Order</button>
 
-                    <div id="order_info" style="display: none;">
+                    <section id="order_info" style="display: none;">
                         <div class="order_box">
                             <div class="total_box">
-                                <span>Tax: <span id="tax">0 UZS</span></span>
-                                <span>Discount: <span id="discount">0%</span></span>
-                                <span>Total: <span id="total">0 UZS</span></span>
+                                <span>Tax(<span id="taxPercentage"></span>%):</span>
+                                <span id="taxValue">0</span> <span>UZS</span>
                             </div>
-                            <button id="closeOrder">Close</button>
+                            <div class="total_box">
+                                <span>Discount (<span id="discountPercentage"></span>%):</span>
+                                <span id="discountValue">0</span> <span></span>
+                            </div>
+                            <div class="total_box">
+                                <span>Total:</span>
+                                <span id="totalValue">0</span> <span>UZS</span>
+                            </div>
+                            <button id="submitOrder" style="margin-top: 10px;">Submit</button>
+                            <button id="closeOrder" style="margin-left: 10px;">Close</button>
+                            <p id="successMessage" class="success-message" style="display: none; color: green; margin-top: 10px;">
+                                Your order has been successfully placed!
+                            </p>
                         </div>
-                    </div>
+                    </section>
 
 
                 </form>
               </div>
         </div>
     </section>
-
-    <!-- order section ends -->
-    <p id="successMessage" class="success-message" style="display: none;">
-        Your order has been successfully placed!
-    </p>
 
     <!-- footer section starts -->
 
