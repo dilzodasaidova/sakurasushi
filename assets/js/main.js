@@ -15,7 +15,7 @@ const placeOrderButton = document.getElementById("submitOrder");
 const BASE_CALCULATE_API_URL = "http://localhost:8080/api/order/calculate";
 const BASE_PLACE_ORDER_API_URL = "http://localhost:8080/api/order";
 
-/* ---------------------------------- MODAL INIT ----------------------------------------- */
+/* ---------------------------------- MODALS INIT ----------------------------------------- */
 // Ensure the modal element exists
 const orderModalElement = document.getElementById('orderModal');
 
@@ -24,12 +24,9 @@ const orderModal = new bootstrap.Modal(orderModalElement, {
     backdrop: 'static', // Prevent closing by clicking outside the modal
     keyboard: false, // Disable closing with keyboard (Esc key)
 });
-
-/* ---------------------------------- TOAST INIT ----------------------------------------- */
-// Initialize the toast
-const toastElement = document.getElementById("orderToast");
-const toast = new bootstrap.Toast(toastElement);
-
+const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
 
 /* ---------------------------------------INCREMENT & DECREMENT BUTTONS--------------------------------------- */
 // Add event listeners to increment buttons
@@ -66,7 +63,7 @@ async function calculateOrder() {
     const errors = validateInputs();
     if (errors.length > 0) {
         // Show error toast with all validation messages
-        showToast(errors.join(" "), "danger");
+        showValidationErrors(errors);
         return; // Stop further execution
     }
 
@@ -99,7 +96,7 @@ async function calculateOrder() {
         showOrderModal(data);
     } catch (error) {
         console.error("Error:", error);
-        showToast("Failed to calculate order. Please try again.", "danger");
+        showErrorPopup("Failed to calculate order. Please try again.");
     }
 }
 
@@ -140,11 +137,11 @@ async function placeOrder() {
         const data = await response.text();
         console.log("Place order response:", data);
         resetForm();
-        showToast("Order placed successfully!", "success");
+        showSuccessPopup("Order placed successfully!", "success");
     } catch (error) {
         console.error("Error:", error);
         // Show error toast
-        showToast("Failed to place order. Please try again.", "danger");
+        showErrorPopup("Failed to place order. Please try again.");
     }
 }
 
@@ -212,18 +209,37 @@ function showOrderModal(data) {
     orderModal.show();
 }
 
-/* ---------------------------------------SHOW TOAST HELPER --------------------------------------- */
-function showToast(message, type) {
-    // Update the message
-    document.querySelector("#orderToast .toast-body").textContent = message;
+/* ---------------------------------------SHOW POPUP HELPER --------------------------------------- */
+// Function to show the success modal
+function showSuccessPopup() {
+    successModal.show();
+}
 
-    // Update the toast color (success or danger)
-    const toastClassList = toastElement.classList;
-    toastClassList.remove("text-bg-success", "text-bg-danger"); // Remove existing classes
-    toastClassList.add(`text-bg-${type}`); // Add new class based on the type
+// Function to show the error modal with a custom message
+function showErrorPopup(message) {
+    document.getElementById('errorMessage').textContent = message;
+    errorModal.show();
+}
 
-    // Show the toast
-    toast.show();
+
+
+// Function to show validation errors in the modal
+function showValidationErrors(errors) {
+    const errorList = document.getElementById("validationErrorList");
+
+    // Clear existing errors
+    errorList.innerHTML = "";
+
+    // Populate errors
+    errors.forEach((error) => {
+        const errorItem = document.createElement("li");
+        errorItem.textContent = error;
+        errorItem.className = "list-group-item list-group-item-danger";
+        errorList.appendChild(errorItem);
+    });
+
+    // Show the modal
+    validationModal.show();
 }
 
 
