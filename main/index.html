@@ -19,15 +19,23 @@
     <header>
         <div class="container">
             <div class="topmenu">
-                <img src="./assets/images/cart.png" alt="">
+                <div class="hourglass">
+                    <img src="./assets/images/icons8-hourglass-100.png" alt="">
+                    <a href="./history.html"></a>
+                    
+                </div>
+                <img src="./assets/images/cart.png" alt="Cart">
                 <span>0</span>
+                <span class="cart-count">0</span>
             </div>
+            
             <div class="header_content">
                 <h1>Sakura Bar Sushi</h1>
                 <span>Welcome to Sakura Sushi, your go-to destination for authentic <br> Japanese cuisine!</span>
             </div>
         </div>
     </header>
+    
     
 
     <!-- menu section starts -->
@@ -172,9 +180,12 @@
                 <form>
                   <label for="region">Region:</label>
                   <select id="region" name="region">
-                    <option value="uzb">Uzb</option>
-                    <option value="usa">USA</option>
-                    <option value="uk">UK</option>
+                    <option value="uzb">Uzbekistan</option>
+                    <option value="kz">Kazakhstan</option>
+                    <option value="geo">Georgia</option>
+                    <option value="ukr">Ukraine</option>
+                    <option value="chn">China</option>
+                    <option value="ru">Russia</option>
                     <!-- Add more options as needed -->
                   </select>
             
@@ -189,9 +200,11 @@
     </section>
 
     <!-- order section ends -->
+    <p id="successMessage" class="success-message" style="display: none;">
+        Your order has been successfully placed!
+    </p>
 
-
-    <!-- footer section strats -->
+    <!-- footer section starts -->
 
     <footer>
         <div class="container">
@@ -214,8 +227,6 @@
     </footer>
 
     <!-- footer section ends -->
-
-
 
     <!-- bootstrap scripts -->
     <!-- Latest compiled and minified JavaScript -->
