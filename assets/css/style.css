@@ -504,3 +504,8 @@ header .topmenu span {
     width: 180px;
     height:50px;
 }
+
+button:focus, a:focus {
+    outline: 2px solid #f75990; /* High-contrast focus outline */
+    outline-offset: 2px;
+}
