@@ -1,12 +1,9 @@
 /* --------------------------------- VARIABLES ------------------------------------------ */
-const incrementButtons = document.querySelectorAll(".increment");
-const decrementButtons = document.querySelectorAll(".decrement");
-const cart = document.querySelector(".cart-count");
 let cartCounter = 0;
+const menuContainer = document.querySelector(".menu_product");
 
 const regionSelect = document.getElementById("region");
 const dateChosen = document.getElementById("date");
-
 
 const taxValue = document.getElementById("taxValue");
 const taxPercentage = document.getElementById("taxPercentage");
@@ -15,8 +12,96 @@ const discountPercentage = document.getElementById("discountPercentage");
 const totalValue = document.getElementById("totalValue");
 const placeOrderButton = document.getElementById("submitOrder");
 
-const BASE_CALCULATE_API_URL = "http://localhost:8080/api/order/calculate";
-const BASE_PLACE_ORDER_API_URL = "http://localhost:8080/api/order";
+const API_HOST = "http://localhost:8080";
+const BASE_GET_PRODUCTS_API_URL = `${API_HOST}/api/product/all`;
+const BASE_CALCULATE_API_URL = `${API_HOST}/api/order/calculate`;
+const BASE_PLACE_ORDER_API_URL = `${API_HOST}/api/order`;
+
+
+/* --------------------------------- LOAD PRODUCTS ------------------------------------------ */
+// Function to fetch products from the API
+async function fetchProducts() {
+    try {
+        const response = await fetch(BASE_GET_PRODUCTS_API_URL);
+        if (!response.ok) {
+            throw new Error("Failed to fetch products");
+        }
+
+        const products = await response.json();
+        console.log("Fetched products:", products);
+
+        // Render products in the DOM
+        renderProducts(products);
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        showErrorPopup("Failed to load products. Please try again.");
+    }
+}
+
+// Function to render products in the DOM
+function renderProducts(products) {
+    // Clear existing products
+    menuContainer.innerHTML = "";
+
+    products.forEach(product => {
+
+        // Create product card
+        const productHTML = `
+            <div class="menu_box">
+                <div class="menu_item">
+                    <img src="${API_HOST}${product.imgUrl}" alt="${product.name}">
+                    <span>${product.name}</span>
+                </div>
+                <div class="menu_price">
+                    <span>${product.price.toLocaleString()} UZS</span>
+                    <div class="counter-container">
+                        <button class="decrement">-</button>
+                        <span class="number-display">0</span>
+                        <button class="increment">+</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        // Append to the container
+        menuContainer.insertAdjacentHTML("beforeend", productHTML);
+    });
+    // Attach event listeners for increment and decrement buttons
+    attachCounterEventListeners();
+}
+
+// Function to attach event listeners for buttons
+function attachCounterEventListeners() {
+    const incrementButtons = document.querySelectorAll(".increment");
+    const decrementButtons = document.querySelectorAll(".decrement");
+    const cart = document.querySelector(".cart-count");
+
+    // Add event listeners to increment buttons
+    incrementButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const quantityDisplay = button.previousElementSibling;
+            const currentValue = parseInt(quantityDisplay.textContent);
+            quantityDisplay.textContent = currentValue + 1;
+            cartCounter++;
+            cart.textContent = cartCounter;
+        });
+    });
+
+    // Add event listeners to decrement buttons
+    decrementButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const quantityDisplay = button.nextElementSibling;
+            const currentValue = parseInt(quantityDisplay.textContent);
+            if (currentValue > 0) {
+                quantityDisplay.textContent = currentValue - 1;
+                cartCounter--;
+                cart.textContent = cartCounter;
+            }
+        });
+    });
+}
+
+/* --------------------------------- INIT PRODUCTS FETCH ------------------------------------------ */
+fetchProducts();
 
 /* ---------------------------------- MODALS INIT ----------------------------------------- */
 // Ensure the modal element exists
@@ -27,33 +112,6 @@ const orderModal = new bootstrap.Modal(orderModalElement, {
     backdrop: 'static', // Prevent closing by clicking outside the modal
     keyboard: false, // Disable closing with keyboard (Esc key)
 });
-
-
-/* ---------------------------------------INCREMENT & DECREMENT BUTTONS--------------------------------------- */
-// Add event listeners to increment buttons
-incrementButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const quantityDisplay = button.previousElementSibling;
-        const currentValue = parseInt(quantityDisplay.textContent);
-        quantityDisplay.textContent = currentValue + 1;
-        cartCounter++;
-        cart.textContent = cartCounter;
-    });
-});
-
-// Add event listeners to decrement buttons
-decrementButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const quantityDisplay = button.nextElementSibling;
-        const currentValue = parseInt(quantityDisplay.textContent);
-        if (currentValue > 0) {
-            quantityDisplay.textContent = currentValue - 1;
-            cartCounter--;
-            cart.textContent = cartCounter;
-        }
-    });
-});
-
 
 /* ---------------------------------------CALCULATE BUTTON--------------------------------------- */
 // Event listener for the order button
