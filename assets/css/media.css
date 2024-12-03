@@ -22,7 +22,6 @@ body {
 
   header .topmenu {
       padding: 10px;
-      flex-direction: column; /* Stack items vertically for narrow screens */
       gap: 10px;
   }
 
