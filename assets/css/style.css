@@ -147,7 +147,7 @@ header .topmenu span {
 
 /* menu section style starts */
 #menu{
-    padding: 100px 0px;
+    padding: 100px 0px 0px;
 }
 #menu .page_title span{
     text-shadow: 3px 2px 11px rgba(0, 0, 0, 0.34);
