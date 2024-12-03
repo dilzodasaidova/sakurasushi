@@ -17,13 +17,13 @@
         <div class="container">
             <div class="topmenu">
                 <div class="hourglass">
-                    <a href="history.html">
-                        <img src="assets/images/icons8-hourglass-100.png" alt="">
+                    <a href="history.html" title="History Page">
+                        <img src="assets/images/icons8-hourglass-100.png" alt="History Page Link">
                     </a>
                 </div>
 
                 <div>
-                    <img src="assets/images/cart.png" alt="Cart">
+                    <img src="assets/images/cart.png" alt="Cart Counter">
                     <span>0</span>
                     <span class="cart-count">0</span>
                 </div>
@@ -56,7 +56,7 @@
 
     <!--  Toast -->
     <div class="toast-container position-fixed top-50 start-50 translate-middle p-3" style="z-index: 1055;">
-        <div id="customToast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="customToast" class="toast align-items-center text-white bg-primary border-0" role="status" aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body" id="toastMessage">
                     This is a notification message!
@@ -87,10 +87,10 @@
                   <input type="date" id="date" name="date">
 
 
-                    <button id="orderButton" class="order_button">Order</button>
+                    <button id="orderButton" class="order_button" aria-label="Order Sushi">Order</button>
 
-                    <div class="modal" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                    <div class="modal" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"  aria-describedby="orderModalContent" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="orderModalLabel">Order Summary</h5>
@@ -102,8 +102,8 @@
                                     <p><strong>Total: <span id="totalValue">0</span> UZS</strong></p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button id="submitOrder" type="button" class="btn btn-primary">Place Order</button>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button id="submitOrder" type="button" class="btn btn-primary" aria-label="Place Order">Place Order</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancel">>Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -123,16 +123,16 @@
             <div class="footer_box">
                 <div class="footer-adres">
                     <div class="number">
-                        <img class="icons" src="assets/images/telicon.png" alt="">
-                        <a href="tel: +997684209">+990012345678</a>
+                        <img class="icons" src="assets/images/telicon.png" alt="Phone Number">
+                        <a href="tel:+990012345678">+990012345678</a>
                     </div>
                     <div class="number">
-                        <img src="assets/images/Black%20Icon-%20Mail%202.png" alt="">
-                        <a href="malito: sakura_sushi@gmail.com ">sakura_sushi@gmail.com</a>
+                        <img src="assets/images/Black%20Icon-%20Mail%202.png" alt="Email Address">
+                        <a href="malito:sakura_sushi@gmail.com ">sakura_sushi@gmail.com</a>
                     </div>
                 </div>
                 <div class="logo_footer">
-                    <img src="assets/images/Sakura%20Bar%20Sushi.png" alt="">
+                    <img src="assets/images/Sakura%20Bar%20Sushi.png" alt="Footer logo">
                 </div>
             </div>
         </div>

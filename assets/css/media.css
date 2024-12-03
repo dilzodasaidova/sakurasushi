@@ -12,6 +12,9 @@ body {
 
   header .header_content h1 {
       font-size: 36px; /* Slightly reduced for better scaling */
+  }
+
+  header .header_content {
       text-align: center;
   }
 
@@ -22,7 +25,6 @@ body {
 
   header .topmenu {
       padding: 10px;
-      flex-direction: column; /* Stack items vertically for narrow screens */
       gap: 10px;
   }
 
@@ -85,8 +87,11 @@ body {
   /* Header Content */
   header .header_content h1 {
       font-size: 50px; /* Adjust size for tablets */
-      text-align: center;
   }
+
+    header .header_content {
+        text-align: center;
+    }
 
   header .header_content span {
       font-size: 14px;
