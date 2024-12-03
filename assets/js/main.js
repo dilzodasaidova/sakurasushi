@@ -47,7 +47,7 @@ function renderProducts(products) {
 
         // Create product card
         const productHTML = `
-            <div class="menu_box">
+            <div class="menu_box" data-product-id="${product.id}">
                 <div class="menu_item">
                     <img src="${API_HOST}${product.imgUrl}" alt="${product.name}">
                     <span>${product.name}</span>
@@ -255,9 +255,10 @@ function collectProducts() {
     let products = [];
     document.querySelectorAll(".menu_box").forEach((menuBox, index) => {
         const quantity = parseInt(menuBox.querySelector(".number-display").textContent);
+        const productId = parseInt(menuBox.dataset.productId);
         if (quantity > 0) {
             products.push({
-                productId: index + 1, // Assuming product IDs are sequential and start from 1
+                productId: productId,
                 quantity: quantity,
             });
         }
